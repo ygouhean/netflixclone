@@ -359,7 +359,7 @@ export default {
   justify-content: center;
   text-align: center;
   background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-              url('https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80');
+              url('https://assets.nflxext.com/ffe/siteui/vlv3/9ba9f0e2-b246-47f4-bd1f-3e84c23a5db8/web/CI-fr-20251020-TRIFECTA-perspective_71a7851d-2e85-4ac1-9020-f65dc4ea2988_large.jpg');
   background-size: cover;
   background-position: center;
 }

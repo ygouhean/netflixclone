@@ -42,8 +42,8 @@ Créer un nouveau compte utilisateur.
 {
   "email": "user@example.com",
   "password": "motdepasse123",
-  "nom": "Doe",
-  "prenom": "John"
+  "nom": "Gouhean",
+  "prenom": "Yannick
 }
 ```
 
@@ -55,8 +55,8 @@ Créer un nouveau compte utilisateur.
   "user": {
     "id": "6123456789abcdef12345678",
     "email": "user@example.com",
-    "nom": "Doe",
-    "prenom": "John",
+    "nom": "Gouhean",
+    "prenom": "Yannick",
     "role": "user",
     "abonnement": {
       "type": "none",
@@ -90,8 +90,8 @@ Authentifier un utilisateur existant.
   "user": {
     "id": "6123456789abcdef12345678",
     "email": "user@example.com",
-    "nom": "Doe",
-    "prenom": "John",
+    "nom": "yannick",
+    "prenom": "Gouhean",
     "role": "user",
     "abonnement": {
       "type": "standard",
@@ -121,8 +121,8 @@ Authorization: Bearer <token>
   "user": {
     "id": "6123456789abcdef12345678",
     "email": "user@example.com",
-    "nom": "Doe",
-    "prenom": "John",
+    "nom": "yannick",
+    "prenom": "Gouhean",
     "role": "user",
     "abonnement": {
       "type": "standard",
@@ -357,8 +357,8 @@ Authorization: Bearer <admin_token>
     {
       "_id": "6123456789abcdef12345678",
       "email": "user@example.com",
-      "nom": "Doe",
-      "prenom": "John",
+      "nom": "yannick",
+      "prenom": "Gouhean",
       "role": "user",
       "abonnement": {
         "type": "standard",

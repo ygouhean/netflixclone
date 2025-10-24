@@ -145,7 +145,7 @@ npm install
 Ouvrez le fichier `frontend/src/views/client/Subscribe.vue` et remplacez :
 
 ```javascript
-// Ligne ~121
+// Ligne ~
 const stripe = await loadStripe('pk_test_votre_cle_publique_stripe');
 ```
 
@@ -159,13 +159,13 @@ npm run serve
 Vous devriez voir :
 ```
 App running at:
-- Local:   http://localhost:8080/
+- Local:   http://localhost:3000/
 ```
 
 ## 🎉 Premier Lancement
 
 ### 1. Ouvrir l'application
-Ouvrez votre navigateur et allez sur : [http://localhost:8080](http://localhost:8080)
+Ouvrez votre navigateur et allez sur : [http://localhost:3000](http://localhost:3000)
 
 ### 2. Créer un compte utilisateur
 1. Cliquez sur "Commencer" ou "Se connecter"

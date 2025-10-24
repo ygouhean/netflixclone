@@ -114,9 +114,11 @@ export default {
 <style scoped>
 .register-page {
   min-height: 100vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-              url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23141414" width="1200" height="800"/></svg>');
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+              url('https://assets.nflxext.com/ffe/siteui/vlv3/9ba9f0e2-b246-47f4-bd1f-3e84c23a5db8/web/CI-fr-20251020-TRIFECTA-perspective_71a7851d-2e85-4ac1-9020-f65dc4ea2988_large.jpg');
   background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 .register-container {
