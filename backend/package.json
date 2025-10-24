@@ -6,15 +6,18 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
-    "build": "echo 'Backend build completed'",
-    "heroku-postbuild": "echo 'Heroku postbuild completed'"
+    "build": "echo 'No build step required for Node.js'",
+    "prod": "NODE_ENV=production node server.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   },
   "keywords": [
     "netflix",
     "streaming",
     "backend"
   ],
-  "author": "",
+  "author": "Dev Gysc",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",

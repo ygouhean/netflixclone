@@ -106,8 +106,6 @@ npm run serve
 ## 🔧 Configuration
 
 ### Variables d'Environnement Backend
-
-#### 🏠 Développement local
 ```env
 PORT=5000
 MONGODB_URI=mongodb://localhost:27017/netflix-clone
@@ -116,18 +114,6 @@ JWT_EXPIRE=7d
 STRIPE_SECRET_KEY=sk_test_...
 STRIPE_WEBHOOK_SECRET=whsec_...
 CLIENT_URL=http://localhost:3000
-```
-
-#### 🌐 Production (MongoDB Atlas)
-```env
-PORT=5000
-MONGODB_URI=mongodb+srv://ygouhean_db_user:oxrZ2PAnJe6fNOaW@cluster0.m2jnf73.mongodb.net/?appName=Cluster0
-JWT_SECRET=your_production_jwt_secret
-JWT_EXPIRE=7d
-STRIPE_SECRET_KEY=sk_live_...
-STRIPE_WEBHOOK_SECRET=whsec_...
-CLIENT_URL=https://votre-domaine.com
-NODE_ENV=production
 ```
 
 ### Configuration Stripe
