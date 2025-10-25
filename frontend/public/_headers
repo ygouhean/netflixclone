@@ -10,3 +10,6 @@
   X-Robots-Tag: index, follow, noarchive
   Cache-Control: public, max-age=3600
   X-DNS-Prefetch-Control: on
+  X-Requested-With: XMLHttpRequest
+  X-Forwarded-Proto: https
+  X-Forwarded-For: 127.0.0.1
