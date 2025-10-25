@@ -32,6 +32,17 @@ services:
     plan: free
     buildCommand: cd frontend && npm install && npm run build
     staticPublishPath: frontend/dist
+    headers:
+      - path: /*
+        headers:
+          - name: X-Frame-Options
+            value: DENY
+          - name: X-Content-Type-Options
+            value: nosniff
+          - name: X-XSS-Protection
+            value: 1; mode=block
+          - name: Strict-Transport-Security
+            value: max-age=31536000; includeSubDomains
     envVars:
       - key: VUE_APP_API_URL
         value: https://netflixclonebackend-ryt0.onrender.com
