@@ -3,6 +3,9 @@ import { config } from '../../config/production.js';
 
 const API_URL = `${config.API_URL}/api`;
 
+// Debug: Afficher l'URL utilisée
+console.log('🔧 API_URL configurée:', API_URL);
+
 const state = {
   user: null,
   token: localStorage.getItem('token') || null,
