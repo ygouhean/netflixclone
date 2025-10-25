@@ -116,7 +116,7 @@ export default {
         localStorage.setItem('selectedPlan', this.selectedPlan);
         
         // Créer la session Stripe
-        const response = await axios.post('http://localhost:5000/api/payment/create-checkout-session', {
+        const response = await axios.post(`${this.$store.state.config.API_URL}/api/payment/create-checkout-session`, {
           plan: this.selectedPlan
         });
         

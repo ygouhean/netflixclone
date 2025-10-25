@@ -34,4 +34,5 @@ services:
     staticPublishPath: frontend/dist
     envVars:
       - key: VUE_APP_API_URL
-        value: https://netflix-clone-backend.onrender.com
+        value: https://netflixclonebackend-ryt0.onrender.com
+

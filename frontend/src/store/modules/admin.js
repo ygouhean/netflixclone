@@ -1,6 +1,7 @@
 import axios from 'axios';
+import { config } from '../../config/production.js';
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = `${config.API_URL}/api`;
 
 const state = {
   users: [],

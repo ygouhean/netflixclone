@@ -8,8 +8,33 @@ dotenv.config();
 
 const app = express();
 
+// Configuration CORS
+const corsOptions = {
+  origin: function (origin, callback) {
+    // Autoriser les requêtes sans origin (ex: Postman, mobile apps)
+    if (!origin) return callback(null, true);
+    
+    // Liste des domaines autorisés
+    const allowedOrigins = [
+      'http://localhost:5173', // Développement local
+      'http://localhost:3000', // Alternative dev
+      'https://netflixclone-i8in.onrender.com', // Frontend production
+      'https://netflix-clone-frontend.onrender.com' // Alternative frontend
+    ];
+    
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Non autorisé par CORS'));
+    }
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+};
+
 // Middleware
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

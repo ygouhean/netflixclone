@@ -148,8 +148,9 @@ render logs netflix-clone-frontend
 
 ## 🎯 URLs Finales
 
-- **Frontend**: `https://netflix-clone-frontend.onrender.com`
-- **Backend**: `https://netflix-clone-backend.onrender.com`
-- **API**: `https://netflix-clone-backend.onrender.com/api`
+- **Frontend**: `https://netflixclone-i8in.onrender.com`
+- **Backend**: `https://netflixclonebackend-ryt0.onrender.com`
+- **API**: `https://netflixclonebackend-ryt0.onrender.com/api`
 
 Votre Netflix Clone sera accessible 24/7 ! 🎊
+
