@@ -1,10 +1,21 @@
 import axios from 'axios';
 import { config } from '../../config/production.js';
 
-const API_URL = `${config.API_URL}/api`;
+// Configuration robuste avec fallback
+const getAPIUrl = () => {
+  try {
+    return `${config.API_URL}/api`;
+  } catch (error) {
+    console.warn('⚠️ Erreur de configuration, utilisation du fallback');
+    return 'https://netflixclonebackend-ryt0.onrender.com/api';
+  }
+};
+
+const API_URL = getAPIUrl();
 
 // Debug: Afficher l'URL utilisée
 console.log('🔧 API_URL configurée:', API_URL);
+console.log('🔧 Config object:', config);
 
 const state = {
   user: null,
