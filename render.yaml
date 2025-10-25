@@ -42,7 +42,13 @@ services:
           - name: X-XSS-Protection
             value: 1; mode=block
           - name: Strict-Transport-Security
-            value: max-age=31536000; includeSubDomains
+            value: max-age=31536000; includeSubDomains; preload
+          - name: Referrer-Policy
+            value: strict-origin-when-cross-origin
+          - name: Permissions-Policy
+            value: geolocation=(), microphone=(), camera=()
+          - name: X-Robots-Tag
+            value: index, follow
     envVars:
       - key: VUE_APP_API_URL
         value: https://netflixclonebackend-ryt0.onrender.com

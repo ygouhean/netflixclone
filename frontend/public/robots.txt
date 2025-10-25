@@ -8,3 +8,8 @@ Sitemap: https://netflixclone-i8in.onrender.com/sitemap.xml
 Disallow: /admin/
 Disallow: /api/
 Disallow: /_headers
+Disallow: /success
+Disallow: /watch/
+
+# Crawl-delay pour éviter la surcharge
+Crawl-delay: 1
