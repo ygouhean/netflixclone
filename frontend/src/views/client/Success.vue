@@ -9,9 +9,9 @@
         <p>Bienvenue sur Netflix ! Votre abonnement est maintenant actif.</p>
         
         <div class="success-actions">
-          <router-link to="/browse" class="btn btn-primary btn-large">
+          <button @click="goToBrowse" class="btn btn-primary btn-large">
             Commencer à regarder
-          </router-link>
+          </button>
         </div>
         
         <div class="success-info">
@@ -37,6 +37,8 @@ export default {
     Navbar
   },
   async mounted() {
+    console.log('🎉 Page de succès chargée');
+    
     // Rafraîchir les données utilisateur après paiement
     await this.$store.dispatch('auth/checkAuth');
     
@@ -46,26 +48,59 @@ export default {
     const planFromStorage = localStorage.getItem('selectedPlan');
     const selectedPlan = planFromUrl || planFromStorage || 'standard';
     
-    // Attendre un peu pour que le webhook soit traité
-    setTimeout(async () => {
-      await this.$store.dispatch('auth/checkAuth');
+    console.log('📋 Plan sélectionné:', selectedPlan);
+    
+    // Vérifier immédiatement l'état de l'abonnement
+    let hasActiveSubscription = this.$store.getters['auth/hasActiveSubscription'];
+    console.log('🔍 Abonnement actif immédiatement:', hasActiveSubscription);
+    
+    // Si pas d'abonnement actif, attendre le webhook puis activer automatiquement
+    if (!hasActiveSubscription) {
+      console.log('⏳ Attente du webhook Stripe...');
       
-      // Si l'abonnement n'est toujours pas actif après 2 secondes, l'activer automatiquement
-      const hasActiveSubscription = this.$store.getters['auth/hasActiveSubscription'];
+      // Attendre le webhook avec plusieurs tentatives
+      for (let attempt = 1; attempt <= 3; attempt++) {
+        console.log(`🔄 Tentative ${attempt}/3 - Attente de 2 secondes...`);
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        
+        await this.$store.dispatch('auth/checkAuth');
+        hasActiveSubscription = this.$store.getters['auth/hasActiveSubscription'];
+        
+        if (hasActiveSubscription) {
+          console.log('✅ Webhook reçu, abonnement activé !');
+          break;
+        }
+        
+        console.log(`❌ Tentative ${attempt} échouée, abonnement non actif`);
+      }
+      
+      // Si toujours pas d'abonnement après 3 tentatives, activation automatique
       if (!hasActiveSubscription) {
-        console.log('Webhook non reçu, activation automatique avec le plan:', selectedPlan);
+        console.log('🚀 Activation automatique avec le plan:', selectedPlan);
         try {
           await this.$store.dispatch('auth/forceActivateSubscription', { plan: selectedPlan });
           await this.$store.dispatch('auth/checkAuth');
           console.log('✅ Abonnement activé automatiquement avec le plan:', selectedPlan);
-          
-          // Nettoyer le localStorage après activation
-          localStorage.removeItem('selectedPlan');
         } catch (error) {
-          console.error('Erreur activation automatique:', error);
+          console.error('❌ Erreur activation automatique:', error);
         }
       }
-    }, 3000);
+    }
+    
+    // Nettoyer le localStorage après activation
+    localStorage.removeItem('selectedPlan');
+    
+    // Redirection automatique vers la page de visualisation après 2 secondes
+    setTimeout(() => {
+      console.log('🎬 Redirection vers la page de visualisation...');
+      this.$router.push('/browse');
+    }, 2000);
+  },
+  methods: {
+    goToBrowse() {
+      console.log('🎬 Redirection manuelle vers la page de visualisation...');
+      this.$router.push('/browse');
+    }
   },
 };
 </script>
