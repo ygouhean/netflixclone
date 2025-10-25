@@ -65,12 +65,14 @@ app.use((req, res, next) => {
   // Content Security Policy
   res.setHeader('Content-Security-Policy', 
     "default-src 'self'; " +
-    "script-src 'self' 'unsafe-inline' https://js.stripe.com; " +
+    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://js.stripe.com; " +
     "style-src 'self' 'unsafe-inline'; " +
-    "img-src 'self' data: https:; " +
+    "img-src 'self' data: https: blob:; " +
     "font-src 'self' data:; " +
-    "connect-src 'self' https://api.stripe.com; " +
-    "frame-src https://js.stripe.com https://hooks.stripe.com;"
+    "connect-src 'self' https://api.stripe.com https://netflixclone-i8in.onrender.com; " +
+    "frame-src https://js.stripe.com https://hooks.stripe.com; " +
+    "object-src 'none'; " +
+    "base-uri 'self';"
   );
   
   next();

@@ -1,0 +1,7 @@
+Contact: mailto:contact@netflixclone.com
+Expires: 2025-12-31T23:59:59.000Z
+Encryption: https://netflixclone-i8in.onrender.com/pgp-key.txt
+Acknowledgments: https://netflixclone-i8in.onrender.com/security-acknowledgments
+Preferred-Languages: en, fr
+Canonical: https://netflixclone-i8in.onrender.com
+Policy: https://netflixclone-i8in.onrender.com/security-policy
