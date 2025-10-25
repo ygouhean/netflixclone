@@ -23,7 +23,7 @@ services:
       - key: STRIPE_WEBHOOK_SECRET
         value: whsec_4504ed47d5ac7505389336c4d468706450745f7dce1eaff18a47b8161384c1d7
       - key: CLIENT_URL
-        value: https://votre-app-frontend.onrender.com
+        value: https://netflixclone-i8in.onrender.com
 
   # Frontend
   - type: web

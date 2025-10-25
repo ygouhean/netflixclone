@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://netflixclone-i8in.onrender.com/sitemap.xml
+
+# Sécurité
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_headers
