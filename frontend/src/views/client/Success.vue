@@ -3,10 +3,12 @@
     <Navbar />
     
     <div class="container">
-      <div class="success-content">
-        <div class="success-icon">✓</div>
-        <h1>Paiement réussi !</h1>
-        <p>Bienvenue sur Netflix ! Votre abonnement est maintenant actif.</p>
+        <div class="success-content">
+          <div class="success-icon">✓</div>
+          <h1>Paiement réussi !</h1>
+          <p v-if="isAuthenticated && hasActiveSubscription">Bienvenue sur Netflix ! Votre abonnement est maintenant actif.</p>
+          <p v-else-if="isAuthenticated">Votre paiement a été traité. Nous activons votre abonnement...</p>
+          <p v-else>Votre paiement a été traité. Veuillez vous connecter pour accéder à votre abonnement.</p>
         
         <div class="success-actions">
           <button @click="goToBrowse" class="btn btn-primary btn-large" v-if="isAuthenticated">
@@ -67,7 +69,10 @@ export default {
     
     // Vérifier immédiatement l'état de l'abonnement
     let hasActiveSubscription = this.$store.getters['auth/hasActiveSubscription'];
+    const user = this.$store.state.auth.user;
     console.log('🔍 Abonnement actif immédiatement:', hasActiveSubscription);
+    console.log('👤 Utilisateur:', user);
+    console.log('📋 Abonnement utilisateur:', user?.abonnement);
     
     // Si pas d'abonnement actif, attendre le webhook puis activer automatiquement
     if (!hasActiveSubscription) {
@@ -105,21 +110,41 @@ export default {
     // Nettoyer le localStorage après activation
     localStorage.removeItem('selectedPlan');
     
-    // Redirection automatique vers la page de visualisation après 2 secondes
+    // Redirection automatique vers la page de visualisation après 3 secondes
+    // Seulement si l'utilisateur est authentifié et a un abonnement actif
     setTimeout(() => {
-      console.log('🎬 Redirection vers la page de visualisation...');
-      this.$router.push('/browse');
-    }, 2000);
+      const hasActiveSubscription = this.$store.getters['auth/hasActiveSubscription'];
+      console.log('🔍 Abonnement actif avant redirection:', hasActiveSubscription);
+      
+      if (hasActiveSubscription) {
+        console.log('🎬 Redirection vers la page de visualisation...');
+        this.$router.push('/browse');
+      } else {
+        console.log('⚠️ Pas d\'abonnement actif, redirection vers la page d\'abonnement...');
+        this.$router.push('/subscribe');
+      }
+    }, 3000);
   },
   computed: {
     isAuthenticated() {
       return this.$store.getters['auth/isAuthenticated'];
+    },
+    hasActiveSubscription() {
+      return this.$store.getters['auth/hasActiveSubscription'];
     }
   },
   methods: {
     goToBrowse() {
-      console.log('🎬 Redirection manuelle vers la page de visualisation...');
-      this.$router.push('/browse');
+      const hasActiveSubscription = this.$store.getters['auth/hasActiveSubscription'];
+      console.log('🔍 Abonnement actif (manuel):', hasActiveSubscription);
+      
+      if (hasActiveSubscription) {
+        console.log('🎬 Redirection manuelle vers la page de visualisation...');
+        this.$router.push('/browse');
+      } else {
+        console.log('⚠️ Pas d\'abonnement actif, redirection vers la page d\'abonnement...');
+        this.$router.push('/subscribe');
+      }
     },
     goToLogin() {
       console.log('🔐 Redirection vers la page de connexion...');
