@@ -9,8 +9,11 @@
         <p>Bienvenue sur Netflix ! Votre abonnement est maintenant actif.</p>
         
         <div class="success-actions">
-          <button @click="goToBrowse" class="btn btn-primary btn-large">
+          <button @click="goToBrowse" class="btn btn-primary btn-large" v-if="isAuthenticated">
             Commencer à regarder
+          </button>
+          <button @click="goToLogin" class="btn btn-primary btn-large" v-else>
+            Se connecter
           </button>
         </div>
         
@@ -39,8 +42,20 @@ export default {
   async mounted() {
     console.log('🎉 Page de succès chargée');
     
-    // Rafraîchir les données utilisateur après paiement
-    await this.$store.dispatch('auth/checkAuth');
+    // Vérifier si l'utilisateur est authentifié
+    const isAuthenticated = this.$store.getters['auth/isAuthenticated'];
+    console.log('🔐 Utilisateur authentifié:', isAuthenticated);
+    
+    if (isAuthenticated) {
+      // Rafraîchir les données utilisateur après paiement
+      await this.$store.dispatch('auth/checkAuth');
+    } else {
+      console.log('⚠️ Utilisateur non authentifié, redirection vers la page de connexion');
+      setTimeout(() => {
+        this.$router.push('/login');
+      }, 3000);
+      return;
+    }
     
     // Récupérer le plan depuis l'URL ou le localStorage
     const urlParams = new URLSearchParams(window.location.search);
@@ -96,10 +111,19 @@ export default {
       this.$router.push('/browse');
     }, 2000);
   },
+  computed: {
+    isAuthenticated() {
+      return this.$store.getters['auth/isAuthenticated'];
+    }
+  },
   methods: {
     goToBrowse() {
       console.log('🎬 Redirection manuelle vers la page de visualisation...');
       this.$router.push('/browse');
+    },
+    goToLogin() {
+      console.log('🔐 Redirection vers la page de connexion...');
+      this.$router.push('/login');
     }
   },
 };

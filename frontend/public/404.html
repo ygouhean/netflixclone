@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page non trouvée - Netflix Clone</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            background: #000; 
+            color: #fff; 
+            text-align: center; 
+            padding: 50px;
+            margin: 0;
+        }
+        .error-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        h1 { color: #e50914; font-size: 3rem; margin-bottom: 20px; }
+        p { font-size: 1.2rem; margin-bottom: 30px; }
+        .btn {
+            background: #e50914;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 4px;
+            display: inline-block;
+            margin: 10px;
+        }
+        .btn:hover { background: #f40612; }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <h1>404</h1>
+        <h2>Page non trouvée</h2>
+        <p>Désolé, la page que vous recherchez n'existe pas.</p>
+        <a href="/" class="btn">Retour à l'accueil</a>
+        <a href="/browse" class="btn">Explorer les films</a>
+    </div>
+    
+    <script>
+        // Redirection automatique vers l'application Vue.js
+        if (window.location.pathname !== '/') {
+            window.location.href = '/';
+        }
+    </script>
+</body>
+</html>

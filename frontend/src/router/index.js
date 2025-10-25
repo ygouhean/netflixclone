@@ -62,7 +62,7 @@ const routes = [
     path: '/success',
     name: 'Success',
     component: Success,
-    meta: { requiresAuth: true }
+    meta: { requiresAuth: false }
   },
   {
     path: '/admin',
