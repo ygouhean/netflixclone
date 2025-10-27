@@ -181,5 +181,12 @@ export default {
 .register-help a:hover {
   text-decoration: underline;
 }
+
+.login-footer {
+ padding: 2rem 0;
+ background-color: rgba(0, 0, 0, 0.75);
+ color: #8c8c8c;
+ text-align: center;
+}
 </style>
 
