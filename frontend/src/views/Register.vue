@@ -70,6 +70,12 @@
         </div>
       </div>
     </div>
+
+    <div class="login-footer">
+      <div class="container">
+        <p>Attention !!! Ceci est un projet academic pour validation de compétences techniques nommé Netflixclone Côte d'Ivoire dévéloppé par ❤️Dev Gysc</p>
+      </div>
+    </div>
   </div>
 </template>
 
