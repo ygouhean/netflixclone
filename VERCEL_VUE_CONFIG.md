@@ -55,6 +55,20 @@ Voici la liste complète des frameworks supportés :
 - `redwoodjs`
 - `hydrogen`
 
+## ⚠️ Runtimes de fonction valides
+
+Pour les fonctions serverless, utilisez ces runtimes :
+- `nodejs18.x` (recommandé)
+- `nodejs20.x`
+- `python3.9`
+- `python3.10`
+- `python3.11`
+- `ruby3.0`
+- `go1.x`
+- `java11`
+- `java17`
+- `java21`
+
 ## 🎯 Solution pour Vue.js
 
 **Dans le dashboard Vercel :**
