@@ -18,8 +18,10 @@ const corsOptions = {
     const allowedOrigins = [
       'http://localhost:5173', // Développement local
       'http://localhost:3000', // Alternative dev
-      'https://netflixclone-i8in.onrender.com', // Frontend production
-      'https://netflix-clone-frontend.onrender.com' // Alternative frontend
+      'https://netflixclone-i8in.onrender.com', // Frontend Render
+      'https://netflix-clone-frontend.onrender.com', // Alternative frontend Render
+      'https://gysc-netflix.vercel.app', // Frontend Vercel
+      'https://netflix-clone-ygouhean.vercel.app' // Alternative frontend Vercel
     ];
     
     if (allowedOrigins.indexOf(origin) !== -1) {
