@@ -156,7 +156,7 @@
     <footer class="netflix-footer">
       <div class="container">
         <div class="footer-content">
-          <p class="footer-text">Des questions ? Appelez le 1-866-952-4456</p>
+          <p class="footer-text">Des questions ? Appelez le +225 0789458102 </p>
           <div class="footer-links">
             <a href="#">FAQ</a>
             <a href="#">Centre d'aide</a>
@@ -180,7 +180,7 @@
               <option value="en">English</option>
             </select>
           </div>
-          <p class="footer-copyright">Netflix Côte d'Ivoire</p>
+          <p class="footer-copyright">Attention !!! Ceci est un projet academic pour validation de compétences techniques nommé Netflixclone Côte d'Ivoire dévéloppé par ❤️Dev Gysc</p>
         </div>
       </div>
     </footer>
