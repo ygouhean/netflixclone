@@ -51,7 +51,7 @@
 
     <div class="login-footer">
       <div class="container">
-        <p>Netflix Clone - Projet de démonstration</p>
+        <p>Attention !!! Ceci est un projet academic pour validation de compétences techniques nommé Netflixclone Côte d'Ivoire dévéloppé par ❤️Dev Gysc</p>
       </div>
     </div>
   </div>
