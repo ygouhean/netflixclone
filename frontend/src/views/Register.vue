@@ -71,7 +71,7 @@
       </div>
     </div>
 
-    <div class="login-footer">
+    <div class="register-footer">
       <div class="container">
         <p>Attention !!! Ceci est un projet academic pour validation de compétences techniques nommé Netflixclone Côte d'Ivoire dévéloppé par ❤️Dev Gysc</p>
       </div>
@@ -182,11 +182,17 @@ export default {
   text-decoration: underline;
 }
 
-.login-footer {
- padding: 2rem 0;
- background-color: rgba(0, 0, 0, 0.75);
- color: #8c8c8c;
- text-align: center;
+.register-footer {
+  padding: 2rem 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  color: #8c8c8c;
+  text-align: center;
+}
+
+.register-footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 </style>
 
