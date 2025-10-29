@@ -1,6 +1,6 @@
 <template>
   <div class="search-container">
-    <div class="search-input-wrapper" :class="{ focused: isFocused, 'has-results': searchResults.length > 0 }">
+    <div class="search-input-wrapper" :class="inputWrapperClasses">
       <input
         ref="searchInput"
         v-model="searchQuery"
@@ -73,6 +73,12 @@ export default {
   computed: {
     showResults() {
       return this.isFocused && this.searchQuery.length > 0;
+    },
+    inputWrapperClasses() {
+      return {
+        focused: this.isFocused,
+        'has-results': this.searchResults.length > 0
+      };
     }
   },
   methods: {
