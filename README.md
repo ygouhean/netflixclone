@@ -13,6 +13,8 @@ Un clone Netflix entièrement fonctionnel avec une page d'accueil identique au s
 
 ### 🎥 Gestion des Films
 - **Catalogue complet** avec images, descriptions, notes
+- **Barre de recherche** avec recherche en temps réel
+- **Filtres avancés** par genre et tri
 - **Système de favoris** persistant
 - **Lecture de vidéos** avec support YouTube
 - **Historique de visionnage** automatique
@@ -139,6 +141,7 @@ CLIENT_URL=http://localhost:3000
 
 ### Pages Principales
 - **Browse** : Catalogue de films
+- **Search** : Résultats de recherche avec filtres
 - **My List** : Favoris de l'utilisateur
 - **Watch** : Lecteur vidéo
 - **Subscribe** : Plans d'abonnement
@@ -159,11 +162,13 @@ CLIENT_URL=http://localhost:3000
 - **Actions** : Regarder, Ajouter aux favoris
 - **Design Netflix** authentique
 
-### Gestion des Favoris
-- **Ajout/Suppression** en un clic
-- **Synchronisation** frontend-backend
-- **Persistance** des données
-- **Interface intuitive**
+### Barre de Recherche
+- **Recherche en temps réel** avec debouncing
+- **Résultats instantanés** dans un dropdown
+- **Page de résultats** complète avec pagination
+- **Filtres avancés** par genre et tri
+- **Interface responsive** et intuitive
+- **Intégration parfaite** dans la navbar
 
 ## 🔒 Sécurité
 
