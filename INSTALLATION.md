@@ -171,8 +171,8 @@ Ouvrez votre navigateur et allez sur : [http://localhost:3000](http://localhost:
 1. Cliquez sur "Commencer" ou "Se connecter"
 2. Cliquez sur "Inscrivez-vous maintenant"
 3. Remplissez le formulaire :
-   - Prénom : John
-   - Nom : Doe
+   - Prénom : yannick
+   - Nom : Gouhean
    - Email : user@example.com
    - Mot de passe : 123456
 4. Cliquez sur "S'inscrire"

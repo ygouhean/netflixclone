@@ -1,0 +1,28 @@
+{
+  "name": "netflix-clone",
+  "version": "1.0.0",
+  "description": "Netflix Clone - Full Stack Application",
+  "scripts": {
+    "build": "cd frontend && npm install && npm run build",
+    "dev": "cd frontend && npm run serve",
+    "install": "cd frontend && npm install",
+    "start": "cd frontend && npm run serve"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ygouhean/netflixclone.git"
+  },
+  "keywords": [
+    "netflix",
+    "clone",
+    "vue",
+    "nodejs",
+    "mongodb",
+    "stripe"
+  ],
+  "author": "Yanni Gouhean",
+  "license": "MIT"
+}

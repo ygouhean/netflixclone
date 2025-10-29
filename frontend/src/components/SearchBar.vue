@@ -1,6 +1,6 @@
 <template>
   <div class="search-container">
-    <div class="search-input-wrapper" :class="{ focused: isFocused, has-results: searchResults.length > 0 }">
+      <div class="search-input-wrapper" :class="{ focused: isFocused, 'has-results': searchResults.length > 0 }">
       <input
         ref="searchInput"
         v-model="searchQuery"

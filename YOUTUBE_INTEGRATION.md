@@ -126,3 +126,4 @@ La CSP autorise maintenant :
 - Respectez les droits d'auteur des vidéos
 
 Vos vidéos YouTube devraient maintenant s'afficher correctement ! 🎊
+
