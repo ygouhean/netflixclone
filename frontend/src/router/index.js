@@ -12,6 +12,7 @@ import Watch from '../views/client/Watch.vue';
 import MyList from '../views/client/MyList.vue';
 import Subscribe from '../views/client/Subscribe.vue';
 import Success from '../views/client/Success.vue';
+import SearchResults from '../views/client/SearchResults.vue';
 
 // Pages admin
 import AdminDashboard from '../views/admin/Dashboard.vue';
@@ -50,6 +51,12 @@ const routes = [
     path: '/my-list',
     name: 'MyList',
     component: MyList,
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/search',
+    name: 'SearchResults',
+    component: SearchResults,
     meta: { requiresAuth: true }
   },
   {

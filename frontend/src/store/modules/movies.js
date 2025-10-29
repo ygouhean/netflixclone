@@ -18,6 +18,8 @@ const state = {
   currentMovie: null,
   favoris: [],
   historique: [],
+  searchResults: [],
+  searchQuery: '',
   loading: false,
   error: null
 };
@@ -28,7 +30,9 @@ const getters = {
   trendingMovies: state => state.movies.filter(m => m.tendance),
   newMovies: state => state.movies.filter(m => m.nouveaute),
   favoriteMovies: state => state.favoris,
-  watchHistory: state => state.historique
+  watchHistory: state => state.historique,
+  searchResults: state => state.searchResults,
+  searchQuery: state => state.searchQuery
 };
 
 const mutations = {
@@ -49,6 +53,16 @@ const mutations = {
   },
   SET_ERROR(state, error) {
     state.error = error;
+  },
+  SET_SEARCH_RESULTS(state, results) {
+    state.searchResults = results;
+  },
+  SET_SEARCH_QUERY(state, query) {
+    state.searchQuery = query;
+  },
+  CLEAR_SEARCH(state) {
+    state.searchResults = [];
+    state.searchQuery = '';
   }
 };
 
@@ -129,6 +143,28 @@ const actions = {
     } catch (error) {
       console.error('Erreur chargement favoris:', error);
     }
+  },
+
+  async searchMovies({ commit }, query) {
+    try {
+      commit('SET_SEARCH_QUERY', query);
+      commit('SET_LOADING', true);
+      
+      const response = await axios.get(`${API_URL}/movies?search=${encodeURIComponent(query)}`);
+      commit('SET_SEARCH_RESULTS', response.data.movies);
+      
+      return response.data.movies;
+    } catch (error) {
+      commit('SET_ERROR', error.response?.data?.message || 'Erreur lors de la recherche');
+      commit('SET_SEARCH_RESULTS', []);
+      throw error;
+    } finally {
+      commit('SET_LOADING', false);
+    }
+  },
+
+  clearSearch({ commit }) {
+    commit('CLEAR_SEARCH');
   }
 };
 

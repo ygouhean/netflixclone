@@ -10,6 +10,7 @@
       </div>
       
       <div class="navbar-right">
+        <SearchBar @movie-selected="handleMovieSelection" />
         <div class="user-menu">
           <button class="user-button" @click="toggleMenu">
             <span>{{ userInitials }}</span>
@@ -38,8 +39,13 @@
 </template>
 
 <script>
+import SearchBar from './SearchBar.vue';
+
 export default {
   name: 'Navbar',
+  components: {
+    SearchBar
+  },
   data() {
     return {
       isScrolled: false,
@@ -81,6 +87,14 @@ export default {
     logout() {
       this.$store.dispatch('auth/logout');
       this.$router.push('/');
+    },
+    handleMovieSelection(movie) {
+      // Rediriger vers la page de lecture du film
+      if (this.$store.getters['auth/hasActiveSubscription']) {
+        this.$router.push(`/watch/${movie._id}`);
+      } else {
+        this.$router.push('/subscribe');
+      }
     }
   },
   mounted() {
@@ -148,6 +162,12 @@ export default {
 .navbar-menu a:hover,
 .navbar-menu a.router-link-active {
   color: #ccc;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .user-menu {
