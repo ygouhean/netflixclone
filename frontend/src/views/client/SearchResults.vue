@@ -299,7 +299,7 @@ export default {
 
 .filter-group select {
   padding: 0.5rem;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 0, 0, 0.1);
   border: 1px solid #333;
   border-radius: 4px;
   color: white;
