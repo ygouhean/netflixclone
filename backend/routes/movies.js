@@ -17,7 +17,11 @@ router.get('/', async (req, res) => {
     if (tendance) query.tendance = true;
     if (nouveaute) query.nouveaute = true;
     if (search) {
-      query.$text = { $search: search };
+      query.$or = [
+        { titre: { $regex: search, $options: 'i' } },
+        { description: { $regex: search, $options: 'i' } },
+        { genre: { $regex: search, $options: 'i' } }
+      ];
     }
     
     const movies = await Movie.find(query).sort({ createdAt: -1 });
