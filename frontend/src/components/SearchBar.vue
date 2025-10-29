@@ -13,13 +13,6 @@
         @keydown.enter="performSearch"
         @keydown.escape="clearSearch"
       />
-      <div class="search-icon">
-        <svg v-if="!isSearching" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="11" cy="11" r="8"></circle>
-          <path d="m21 21-4.35-4.35"></path>
-        </svg>
-        <div v-else class="search-spinner"></div>
-      </div>
       <button v-if="searchQuery" @click="performSearch" class="search-button" title="Rechercher">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <circle cx="11" cy="11" r="8"></circle>
@@ -196,27 +189,6 @@ export default {
 
 .search-input::placeholder {
   color: rgba(255, 255, 255, 0.7);
-}
-
-.search-icon {
-  padding: 0 0.75rem;
-  color: rgba(255, 255, 255, 0.7);
-  display: flex;
-  align-items: center;
-}
-
-.search-spinner {
-  width: 16px;
-  height: 16px;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  border-top: 2px solid white;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
 }
 
 .clear-button {
